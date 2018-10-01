@@ -1,0 +1,43 @@
+{
+    "name": "daemswibowo/camvret",
+    "description": ":description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dimas Wibowo",
+            "email": "daemswibowo@gmail.com",
+            "homepage": "https://daemswibowo.github.io"
+        }
+    ],
+    "homepage": "https://github.com/daemswibowo/camvret",
+    "keywords": ["Laravel", "Camvret"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Daemswibowo\\Camvret\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Daemswibowo\\Camvret\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Daemswibowo\\Camvret\\CamvretServiceProvider"
+            ],
+            "aliases": {
+                "Camvret": "Daemswibowo\\Camvret\\Facades\\Camvret"
+            }
+        }
+    }
+}
