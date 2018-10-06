@@ -12,9 +12,14 @@
     "homepage": "https://github.com/daemswibowo/camvret",
     "keywords": ["Laravel", "Camvret"],
     "require": {
-        "illuminate/support": "~5"
+        "php": "^7.0",
+        "laravel/passport": "~4.0",
+        "illuminate/support": "~5",
+        "spatie/laravel-permission": "^2.12",
+        "webpatser/laravel-uuid": "^3.0"
     },
     "require-dev": {
+        "mpociot/laravel-apidoc-generator": "^2.0",
         "phpunit/phpunit": "~7.0",
         "mockery/mockery": "^1.1",
         "orchestra/testbench": "~3.0",
