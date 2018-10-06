@@ -57,14 +57,19 @@ class CamvretServiceProvider extends ServiceProvider
     protected function bootForConsole()
     {
         // Publishing the configuration file.
-        $this->publishes([
-            __DIR__.'/../config/camvret.php' => config_path('camvret.php'),
-        ], 'camvret.config');
+        // $this->publishes([
+        //     __DIR__.'/../config/camvret.php' => config_path('camvret.php'),
+        // ], 'camvret.config');
 
         // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/daemswibowo'),
-        ], 'camvret.views');*/
+        $this->publishes([
+            __DIR__.'/../resources' => base_path('resources'),
+            __DIR__.'/../app' => base_path('app'),
+            __DIR__.'/../routes' => base_path('routes'),
+            __DIR__.'/../database' => base_path('database'),
+            __DIR__.'/../package.json' => base_path('package.json'),
+            __DIR__.'/../webpack.mix.js' => base_path('webpack.mix.js'),
+        ], 'camvret');
 
         // Publishing assets.
         /*$this->publishes([

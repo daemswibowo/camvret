@@ -1,0 +1,38 @@
+ol.sortable, ol.sortable ol {
+    margin: 0 0 0 30px;
+    padding: 0px !important;
+    list-style-type: none;
+}
+
+ol.sortable {
+    margin:0 0;
+}
+.sortable li div.menu-title  {
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border-color: #ddd;
+    padding: 6px;
+    margin: 0;
+    cursor: move;
+    background: #f6f6f6;
+}
+
+.placeholder {
+    outline: 1px dashed #4183C4;
+    /*-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: -1px;*/
+}
+.sortable li div.menu-title {
+    margin-bottom: 2px;
+    border-color: #ddd;
+    background: #fafafa;
+}
+
+.mjs-nestedSortable-error {
+    background: #fbe3e4;
+    border-color: transparent;
+}
