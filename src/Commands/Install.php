@@ -38,8 +38,10 @@ class Install extends Command
      */
     public function handle()
     {
-        $this->warn('Installing...');
+        $this->warn('Installing resources');
         Artisan::call('vendor:publish', ['--tag'=>'camvret','--force' => true]);
+        $this->warn('Publishing config files');
+        Artisan::call('vendor:publish', ['--tag'=>'config','--force' => true]);
         $this->info("Camvret resources successfully installed!");
     }
 }
