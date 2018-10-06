@@ -17,7 +17,7 @@ class UsersTableSeeder extends Seeder
         $superadmin = User::create([
             'name' => 'Super Admin',
             'email' => 'superadmin@foo.com',
-            'password' => bcrypt('sooper@min.com'),
+            'password' => bcrypt('secret'),
         ]);
 
         // Reset cached roles and permissions
