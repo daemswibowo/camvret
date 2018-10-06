@@ -4,16 +4,15 @@ namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Passport\HasApiTokens;
 use App\Uuids;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, 
-        Notifiable, 
-        // Uuids, // aktifkan ini jika ingin menggunakan uuid untuk ID usernya 
+    use Notifiable,
+        #activate this if you want to use uuid 
+        // Uuids, 
         HasRoles, 
         SoftDeletes;
 
