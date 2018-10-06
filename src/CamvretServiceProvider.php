@@ -37,6 +37,9 @@ class CamvretServiceProvider extends ServiceProvider
         $this->app->singleton('camvret', function ($app) {
             return new Camvret;
         });
+        $this->commands(
+            'Daemswibowo\Camvret\Commands\Install'
+        );
     }
 
     /**
