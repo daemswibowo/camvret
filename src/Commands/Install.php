@@ -43,5 +43,6 @@ class Install extends Command
         $this->warn('Publishing config files');
         Artisan::call('vendor:publish', ['--tag'=>'config','--force' => true]);
         $this->info("Camvret resources successfully installed!");
+        $this->info("Now run 'npm install'!");
     }
 }
