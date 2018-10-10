@@ -110,8 +110,8 @@
 									<th>Email</th>
 									<th>Roles</th>
 									<th v-if="can('Give Permissions To User')">Additional Permissions</th>
-									<th>Dibuat Pada</th>
-									<th>Aksi</th>
+									<th>Created At</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
