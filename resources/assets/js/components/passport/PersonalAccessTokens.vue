@@ -15,7 +15,7 @@
                 <div class="card-header">
                     Personal Access Tokens
                     <div class="card-header-actions">
-                        <a href="javascript:void(0)" @click="showCreateTokenForm" has-tooltip="true" data-placement="top" title="Batalkan Seleksi" class="card-header-action btn-setting">
+                        <a href="javascript:void(0)" @click="showCreateTokenForm" has-tooltip="true" data-placement="top" title="Clear Selection" class="card-header-action btn-setting">
                             <i class="icon-plus"></i> Create New Token
                         </a>
                     </div>

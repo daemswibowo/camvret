@@ -11,17 +11,17 @@
 						<a href="javascript:void(0)" @click="edit(menu)" has-tooltip="true" data-placement="top" title="Edit" class="card-header-action btn-setting">
 							<i class="icon-pencil"></i>
 						</a>
-						<a href="javascript:void(0)" @click="destroy(menu.id)" has-tooltip="true" data-placement="top" title="Hapus" class="card-header-action btn-close text-danger">
+						<a href="javascript:void(0)" @click="destroy(menu.id)" has-tooltip="true" data-placement="top" title="Delete" class="card-header-action btn-close text-danger">
 							<i class="icon-trash"></i>
 						</a>
 					</div>
 				</div>
 				<div class="card-body collapse" :id="'detail_'+menu.id">
-					<p><strong>Judul:</strong> {{ menu.title }}</p>
-					<p><strong>Ikon:</strong> {{ menu.icon }}</p>
-					<p><strong>Ke:</strong> {{ menu.to }}</p>
-					<p><strong>Tipe:</strong> {{ menu.type }}</p>
-					<p><strong>Izin:</strong> 
+					<p><strong>Title:</strong> {{ menu.title }}</p>
+					<p><strong>Icon:</strong> {{ menu.icon }}</p>
+					<p><strong>To:</strong> {{ menu.to }}</p>
+					<p><strong>Type:</strong> {{ menu.type }}</p>
+					<p><strong>Permissions:</strong> 
 						<span class="badge badge-primary" v-for="permission in menu.permissions.map(x=>x.name)">{{ permission }}</span>
 					</p>
 				</div>

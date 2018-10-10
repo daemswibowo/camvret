@@ -14,7 +14,7 @@
             <div class="card-header">
                 OAuth Clients
                 <div class="card-header-actions">
-                    <a href="javascript:void(0)" @click="showCreateClientForm" has-tooltip="true" data-placement="top" title="Batalkan Seleksi" class="card-header-action btn-setting">
+                    <a href="javascript:void(0)" @click="showCreateClientForm" has-tooltip="true" data-placement="top" title="Clear Selection" class="card-header-action btn-setting">
                         <i class="icon-plus"></i> Create New Client
                     </a>
                 </div>

@@ -45,39 +45,9 @@
 				</a>
 				<div class="dropdown-menu dropdown-menu-right">
 					<div class="dropdown-header text-center">
-						<strong>Account</strong>
-					</div>
-					<a class="dropdown-item" href="#">
-						<i class="fa fa-bell-o"></i> Updates
-						<span class="badge badge-info">42</span>
-					</a>
-					<a class="dropdown-item" href="#">
-						<i class="fa fa-envelope-o"></i> Messages
-						<span class="badge badge-success">42</span>
-					</a>
-					<a class="dropdown-item" href="#">
-						<i class="fa fa-tasks"></i> Tasks
-						<span class="badge badge-danger">42</span>
-					</a>
-					<a class="dropdown-item" href="#">
-						<i class="fa fa-comments"></i> Comments
-						<span class="badge badge-warning">42</span>
-					</a>
-					<div class="dropdown-header text-center">
 						<strong>Settings</strong>
 					</div>
 					<router-link class="dropdown-item" :to="{name: 'Edit Profile'}"><i class="fa fa-user"></i> Profile</router-link>
-					<a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Settings</a>
-					<a class="dropdown-item" href="#">
-						<i class="fa fa-usd"></i> Payments
-						<span class="badge badge-secondary">42</span>
-					</a>
-					<a class="dropdown-item" href="#">
-						<i class="fa fa-file"></i> Projects
-						<span class="badge badge-primary">42</span>
-					</a>
-					<div class="divider"></div>
-					<a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock Account</a>
 					<a class="dropdown-item" href="javascript:void(0)" @click="logout"><i class="fa fa-lock"></i> Logout</a>
 				</div>
 			</li>

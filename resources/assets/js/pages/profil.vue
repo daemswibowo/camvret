@@ -3,7 +3,7 @@
 		<div class="col-md-4">
 			<div class="card card-accent-primary">
 				<div class="card-header">
-					<i class="icon-picture"></i> Foto Profil <small v-if="loadings.image"><i>Mengunggah...</i></small>
+					<i class="icon-picture"></i> Foto Profil <small v-if="loadings.image"><i>Uploading...</i></small>
 				</div>
 				<form action="javascript:void(0)" enctype="multipart/form-data" @submit.prevent="onSubmitImage">
 					<div class="card-body text-center">
@@ -16,7 +16,7 @@
 						</div>
 					</div>
 					<div class="card-footer">
-						<button :disabled="loadings.image" type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Simpan</button>
+						<button :disabled="loadings.image" type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Save</button>
 						<div class="clearfix"></div>
 					</div>
 				</form>
@@ -25,13 +25,13 @@
 		<div class="col-md-8">
 			<div class="card card-accent-primary">
 				<div class="card-header">
-					<i class="icon-settings"></i> Umum
+					<i class="icon-settings"></i> General
 				</div>
 				<form action="javascript:void(0)" @submit.prevent="onSubmit" class="form-horizontal">
 					<div class="card-body">
 						<div class="form-group">
 							<div class="row">
-								<label for="name" class="control-label col-sm-4">Nama</label>
+								<label for="name" class="control-label col-sm-4">Name</label>
 								<div class="col-sm-8">
 									<input :class="{'is-invalid':form.errors.name}" type="text" name="name" v-model="form.name" class="form-control">
 									<div v-if="form.errors.name" class="invalid-feedback">
@@ -51,11 +51,11 @@
 								</div>
 							</div>
 						</div>
-						<legend>Ubah Kata Sandi</legend>
+						<legend>Change Password</legend>
 
 						<div class="form-group">
 							<div class="row">
-								<label for="password" class="control-label col-sm-4">Kata Sandi</label>
+								<label for="password" class="control-label col-sm-4">Password</label>
 								<div class="col-sm-8">
 									<input :class="{'is-invalid':form.errors.password}" type="password" name="password" v-model="form.password" class="form-control">
 									<div v-if="form.errors.password" class="invalid-feedback">
@@ -66,7 +66,7 @@
 						</div>
 						<div class="form-group">
 							<div class="row">
-								<label for="password_confirmation" class="control-label col-sm-4">Konfirmasi Kata Sandi</label>
+								<label for="password_confirmation" class="control-label col-sm-4">Confirm Password</label>
 								<div class="col-sm-8">
 									<input :class="{'is-invalid':form.errors.password_confirmation}" type="password" name="password_confirmation" v-model="form.password_confirmation" class="form-control">
 									<div v-if="form.errors.password_confirmation" class="invalid-feedback">
@@ -77,7 +77,7 @@
 						</div>
 					</div>
 					<div class="card-footer">
-						<button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Simpan</button>
+						<button type="submit" class="btn btn-primary pull-right"><i class="fa fa-save"></i> Save</button>
 						<div class="clearfix"></div>
 					</div>
 				</form>
@@ -157,7 +157,7 @@
 			onSubmitImage(){
 				let erh = true;
 				if (!this.file) {
-					toastr.warning("Silahkan pilih file gambar terlebih dahulu!");
+					toastr.warning("Please choose some image first!");
 					erh = false;
 				}
 				let vm = this;
@@ -185,7 +185,7 @@
 				let vm = this;
 				axios.post(this.url, this.form)
 				.then(res => {
-					toastr.success('Profil disimpan!');
+					toastr.success('Profil diSave!');
 				})
 				.catch(err => {
 					vm.handleError(err);

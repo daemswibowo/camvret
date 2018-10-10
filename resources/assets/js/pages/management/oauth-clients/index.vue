@@ -16,7 +16,7 @@
 		head: {
 			title: function () {
 				return {
-					inner: 'Management » Permission',
+					inner: 'Management » Oauth Client',
 					separator: ' ',
 				}
 			}
@@ -32,8 +32,8 @@
 				},
 				timer: null,
 				modal: {
-					id: 'permission',
-					title: 'Izin Pengguna',
+					id: 'oauth-client',
+					title: 'Oauth Clients',
 					method: 'post'
 				},
 				form: {
@@ -185,7 +185,7 @@
 						axios[this.modal.method](url, this.form)
 						.then(res => {
 							this.resetForm();
-							toastr.success('Berhasil disimpan!');
+							toastr.success('Berhasil diSave!');
 							this.getIndex();
 							if (dismiss) {
 								$('#'+this.modal.id).modal('hide');

@@ -4,7 +4,7 @@
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">{{ modal.method == 'post'?'Tambah':'Edit' }} {{ modal.title }}</h5>
+						<h5 class="modal-title">{{ modal.method == 'post'?'Create':'Edit' }} {{ modal.title }}</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -35,8 +35,8 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-							<button type="submit" :disabled="loadings.submit || loadings.permissions" class="btn btn-primary">Simpan</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" :disabled="loadings.submit || loadings.permissions" class="btn btn-primary">Save</button>
 						</div>
 					</form>
 				</div>
@@ -48,22 +48,22 @@
 				<div class="card card-accent-primary">
 					<div class="card-header">
 
-						<i class="icon-list"></i> Kelola {{ modal.title }} <small v-if="loadings.items">loading...</small>
+						<i class="icon-list"></i> Manage {{ modal.title }} <small v-if="loadings.items">loading...</small>
 						<div class="card-header-actions">
-							<a v-if="can('Delete Roles') && selectedItems.length>0" href="javascript:void(0)" @click="selectedItems=[]" has-tooltip="true" data-placement="top" title="Batalkan Seleksi" class="card-header-action btn-setting">
-								<i class="icon-close"></i> Batalkan seleksi
+							<a v-if="can('Delete Roles') && selectedItems.length>0" href="javascript:void(0)" @click="selectedItems=[]" has-tooltip="true" data-placement="top" title="Clear Selection" class="card-header-action btn-setting">
+								<i class="icon-close"></i> Clear Selection
 							</a>
-							<a v-if="can('Delete Roles') && selectedItems.length>0" href="javascript:void(0)" @click="massDelete" has-tooltip="true" data-placement="top" title="Hapus item yang dipilih" class="card-header-action btn-setting text-danger">
-								<i class="icon-trash"></i> Hapus
+							<a v-if="can('Delete Roles') && selectedItems.length>0" href="javascript:void(0)" @click="massDelete" has-tooltip="true" data-placement="top" title="Delete selected item" class="card-header-action btn-setting text-danger">
+								<i class="icon-trash"></i> Delete
 							</a>
-							<a v-if="can('Create Roles')" href="javascript:void(0)" @click="create" has-tooltip="true" data-placement="top" title="Tambah" class="card-header-action btn-setting">
+							<a v-if="can('Create Roles')" href="javascript:void(0)" @click="create" has-tooltip="true" data-placement="top" title="Create" class="card-header-action btn-setting">
 								<i class="icon-plus"></i>
 							</a>
-							<a href="javascript:void(0)" @click="refresh" has-tooltip="true" data-placement="top" title="Segarkan" class="card-header-action btn-setting">
+							<a href="javascript:void(0)" @click="refresh" has-tooltip="true" data-placement="top" title="Refresh" class="card-header-action btn-setting">
 								<i class="icon-refresh"></i>
 							</a>
 							<a href="javascript:void(0)">
-								<input type="text" v-model="search" @keyup="getSearch" placeholder="Cari" class="card-search">
+								<input type="text" v-model="search" @keyup="getSearch" placeholder="Search" class="card-search">
 							</a>
 						</div>
 
@@ -102,7 +102,7 @@
 										</a>
 
 										<a v-if="can('Delete Roles')" href="javascript:void(0)" @click="destroy(item.id)" class="card-header-action btn-setting text-danger">
-											<i class="icon-trash"></i> Hapus
+											<i class="icon-trash"></i> Delete
 										</a>
 									</td>
 								</tr>
@@ -143,7 +143,7 @@
 				timer: null,
 				modal: {
 					id: 'role',
-					title: 'Peran Pengguna',
+					title: 'Roles',
 					method: 'post'
 				},
 				form: {
@@ -314,7 +314,7 @@
 						axios[this.modal.method](url, data)
 						.then(res => {
 							this.resetForm();
-							toastr.success('Berhasil disimpan!');
+							toastr.success('Berhasil diSave!');
 							this.getIndex();
 							if (dismiss) {
 								$('#'+this.modal.id).modal('hide');

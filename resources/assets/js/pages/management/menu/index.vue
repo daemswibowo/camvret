@@ -4,7 +4,7 @@
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">{{ modal.method == 'post'?'Tambah':'Edit' }} {{ modal.title }}</h5>
+						<h5 class="modal-title">{{ modal.method == 'post'?'Create':'Edit' }} {{ modal.title }}</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -30,22 +30,21 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
-										<label for="title" class="control-label">Judul</label>
+										<label for="title" class="control-label">Title</label>
 										<input :disabled="loadings.submit" type="text" name="title" v-model="form.title" class="form-control" :class="{'is-invalid':form.errors.title}">
 										<div v-if="form.errors.title" class="invalid-feedback">
 											{{ form.errors.title[0] }}
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="icon" class="control-label">Simbol (ikon) <a href="javascript:void(0)" @click="iconList"><i class="icon-eye"></i></a></label>
+										<label for="icon" class="control-label">Icon<a href="javascript:void(0)" @click="iconList"><i class="icon-eye"></i></a></label>
 										<input :disabled="loadings.submit" type="text" name="icon" v-model="form.icon" class="form-control" :class="{'is-invalid':form.errors.icon}">
 										<div v-if="form.errors.icon" class="invalid-feedback">
 											{{ form.errors.icon[0] }}
 										</div>
 										<br>
 										<div class="alert alert-info">
-											<i class="icon-info"></i> Ikon adalah sebuah nama kelas yang akan diaplikasikan ke tag <strong>i</strong>.
-											Contoh penulisan ikon yang benar: 
+											<i class="icon-info"></i> The icon is a class name that will be applied to the <strong> i </strong> tag. Examples of writing the correct icon: 
 											<span class="badge badge-danger">icon-user</span>
 											<span class="badge badge-danger">fa fa-user</span>
 										</div>
@@ -53,14 +52,14 @@
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
-										<label for="to" class="control-label">Ke</label>
+										<label for="to" class="control-label">To</label>
 										<input :disabled="loadings.submit" type="text" name="to" v-model="form.to" class="form-control" :class="{'is-invalid':form.errors.to}">
 										<div v-if="form.errors.to" class="invalid-feedback">
 											{{ form.errors.to[0] }}
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="type" class="control-label">Tipe</label>
+										<label for="type" class="control-label">Type</label>
 										<div class="form-inline">
 											<div class="form-check pr-3">
 												<label class="form-check-label">
@@ -78,7 +77,7 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="permissions" class="control-label">Izin</label>
+										<label for="permissions" class="control-label">Permissions</label>
 										<p v-if="loadings.permissions">Loading...</p>
 										<v-select v-show="!loadings.permissions" v-model="form.permissions" multiple :options="permissions" :disabled="loadings.permissions" label="name"></v-select>
 										<div v-if="form.errors.permissions" class="invalid-feedback">
@@ -89,8 +88,8 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-							<button type="submit" :disabled="loadings.submit" class="btn btn-primary">Simpan</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" :disabled="loadings.submit" class="btn btn-primary">Save</button>
 						</div>
 					</form>
 				</div>
@@ -103,12 +102,12 @@
 				<div class="card card-accent-primary">
 					<div class="card-header">
 
-						<i class="icon-list"></i> Kelola {{ modal.title }} <small v-if="loadings.items">loading...</small>
+						<i class="icon-list"></i> Manage {{ modal.title }} <small v-if="loadings.items">loading...</small>
 						<div class="card-header-actions">
-							<a v-if="can('Create Menus')" href="javascript:void(0)" @click="create" has-tooltip="true" data-placement="top" title="Tambah" class="card-header-action btn-setting">
+							<a v-if="can('Create Menus')" href="javascript:void(0)" @click="create" has-tooltip="true" data-placement="top" title="Create" class="card-header-action btn-setting">
 								<i class="icon-plus"></i>
 							</a>
-							<a href="javascript:void(0)" @click="refresh" has-tooltip="true" data-placement="top" title="Segarkan" class="card-header-action btn-setting">
+							<a href="javascript:void(0)" @click="refresh" has-tooltip="true" data-placement="top" title="Refresh" class="card-header-action btn-setting">
 								<i class="icon-refresh"></i>
 							</a>
 						</div>
@@ -330,7 +329,7 @@
 				axios[this.modal.method](url, data)
 				.then(res => {
 					this.resetForm();
-					toastr.success('Berhasil disimpan!');
+					toastr.success('Berhasil diSave!');
 					this.getIndex();
 					if (dismiss) {
 						$('#'+this.modal.id).modal('hide');

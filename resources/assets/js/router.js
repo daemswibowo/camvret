@@ -12,7 +12,7 @@ import Menu from './pages/management/menu/index.vue';
 import Profile from './pages/profil.vue';
 
 Vue.use(VueRouter);
-let path = '/app/';
+let path = '/dashboard/';
 let management = path+'management/';
 export default new VueRouter ({
 	mode: 'history',
@@ -20,7 +20,7 @@ export default new VueRouter ({
 	routes: [
 	{
 		path: path, 
-		redirect: path+'dashboard',
+		redirect: {name: 'Read Home'},
 		meta: {
 			permission: 'public',
 		}
@@ -38,7 +38,7 @@ export default new VueRouter ({
 		}
 	},
 	{
-		path: path+'dashboard', 
+		path: path+'home', 
 		component: Home,
 		name: 'Read Home',
 		meta: {

@@ -4,7 +4,7 @@
 			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h5 class="modal-title">{{ modal.method == 'post'?'Tambah':'Edit' }} {{ modal.title }}</h5>
+						<h5 class="modal-title">{{ modal.method == 'post'?'Create':'Edit' }} {{ modal.title }}</h5>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
@@ -57,7 +57,7 @@
 										</div>
 									</div>
 									<div class="form-group" v-if="can('Give Permissions To User')">
-										<label for="roles" class="control-label">Izin Tambahan</label>
+										<label for="roles" class="control-label">Izin Createan</label>
 										<p v-if="loadings.permissions">Loading...</p>
 										<v-select v-show="!loadings.permissions" v-model="form.permissions" multiple :options="permissions" :disabled="loadings.permissions" label="name"></v-select>
 										<div v-if="form.errors.permissions" class="invalid-feedback">
@@ -68,8 +68,8 @@
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-							<button type="submit" :disabled="loadings.submit" class="btn btn-primary">Simpan</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="submit" :disabled="loadings.submit" class="btn btn-primary">Save</button>
 						</div>
 					</form>
 				</div>
@@ -81,22 +81,22 @@
 				<div class="card card-accent-primary">
 					<div class="card-header">
 
-						<i class="icon-list"></i> Kelola {{ modal.title }} <small v-if="loadings.items">loading...</small>
+						<i class="icon-list"></i> Manage {{ modal.title }} <small v-if="loadings.items">loading...</small>
 						<div class="card-header-actions">
-							<a v-if="can('Delete Users') && selectedItems.length>0" href="javascript:void(0)" @click="selectedItems=[]" has-tooltip="true" data-placement="top" title="Batalkan Seleksi" class="card-header-action btn-setting">
-								<i class="icon-close"></i> Batalkan seleksi
+							<a v-if="can('Delete Users') && selectedItems.length>0" href="javascript:void(0)" @click="selectedItems=[]" has-tooltip="true" data-placement="top" title="Clear Selection" class="card-header-action btn-setting">
+								<i class="icon-close"></i> Clear Selection
 							</a>
-							<a v-if="can('Delete Users') && selectedItems.length>0" href="javascript:void(0)" @click="massDelete" has-tooltip="true" data-placement="top" title="Hapus item yang dipilih" class="card-header-action btn-setting text-danger">
-								<i class="icon-trash"></i> Hapus
+							<a v-if="can('Delete Users') && selectedItems.length>0" href="javascript:void(0)" @click="massDelete" has-tooltip="true" data-placement="top" title="Delete selected item" class="card-header-action btn-setting text-danger">
+								<i class="icon-trash"></i> Delete
 							</a>
-							<a href="javascript:void(0)" v-if="can('Create Users')" @click="create" has-tooltip="true" data-placement="top" title="Tambah" class="card-header-action btn-setting">
+							<a href="javascript:void(0)" v-if="can('Create Users')" @click="create" has-tooltip="true" data-placement="top" title="Create" class="card-header-action btn-setting">
 								<i class="icon-plus"></i>
 							</a>
-							<a href="javascript:void(0)" @click="refresh" has-tooltip="true" data-placement="top" title="Segarkan" class="card-header-action btn-setting">
+							<a href="javascript:void(0)" @click="refresh" has-tooltip="true" data-placement="top" title="Refresh" class="card-header-action btn-setting">
 								<i class="icon-refresh"></i>
 							</a>
 							<a href="javascript:void(0)">
-								<input type="text" v-model="search" @keyup="getSearch" placeholder="Cari" class="card-search">
+								<input type="text" v-model="search" @keyup="getSearch" placeholder="Search" class="card-search">
 							</a>
 						</div>
 
@@ -109,7 +109,7 @@
 									<th>Nama</th>
 									<th>Email</th>
 									<th>Peran</th>
-									<th v-if="can('Give Permissions To User')">Izin Tambahan</th>
+									<th v-if="can('Give Permissions To User')">Izin Createan</th>
 									<th>Dibuat Pada</th>
 									<th>Aksi</th>
 								</tr>
@@ -138,12 +138,12 @@
 									</td>
 									<td>{{ item.created_at | moment("dddd, MMMM Do YYYY") }}</td>
 									<td>
-										<a v-if="can('Update Users')" href="javascript:void(0)" @click="edit(item)" has-tooltip="true" data-placement="top" title="Segarkan" class="card-header-action btn-setting">
+										<a v-if="can('Update Users')" href="javascript:void(0)" @click="edit(item)" has-tooltip="true" data-placement="top" title="Refresh" class="card-header-action btn-setting">
 											<i class="icon-pencil"></i> Edit
 										</a>
 
-										<a href="javascript:void(0)" v-if="can('Delete Users')" @click="destroy(item.id)" has-tooltip="true" data-placement="top" title="Segarkan" class="card-header-action btn-setting text-danger">
-											<i class="icon-trash"></i> Hapus
+										<a href="javascript:void(0)" v-if="can('Delete Users')" @click="destroy(item.id)" has-tooltip="true" data-placement="top" title="Refresh" class="card-header-action btn-setting text-danger">
+											<i class="icon-trash"></i> Delete
 										</a>
 									</td>
 								</tr>
@@ -184,7 +184,7 @@
 				timer: null,
 				modal: {
 					id: 'user',
-					title: 'Pengguna',
+					title: 'Users',
 					method: 'post'
 				},
 				form: {
@@ -363,7 +363,7 @@
 						axios[this.modal.method](url, data)
 						.then(res => {
 							this.resetForm();
-							toastr.success('Berhasil disimpan!');
+							toastr.success('Berhasil diSave!');
 							this.getIndex();
 							if (dismiss) {
 								$('#'+this.modal.id).modal('hide');

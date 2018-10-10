@@ -91,32 +91,32 @@ Vue.mixin({
 	methods: {
 		swalDelete () {
 			return swal({
-				title: 'Apakah Anda yakin?',
-				text: "Anda tidak dapat mengembalikan data ini lagi!",
+				title: 'Are you sure?',
+				text: "You cannot restore this data again!!",
 				type: 'warning',
 				showCancelButton: true,
-				confirmButtonText: 'Ya, hapus saja!',
-				cancelButtonText: 'Batal',
+				confirmButtonText: 'Yes, delete it!',
+				cancelButtonText: 'Cancel',
 				allowEscapeKey: false,
 			});
 		},
 
 		swalMassDelete () {
 			return swal({
-				title: 'Anda yakin ?',
-				text: "Semua data yang dipilih akan dihapus!",
+				title: 'Are you sure ?',
+				text: "All selected data will be deleted!",
 				type: 'question',
 				showCancelButton: true,
 				allowEscapeKey: false,
-				confirmButtonText: 'Ya, lanjutkan!',
-				cancelButtonText: 'Batal',
+				confirmButtonText: 'Yes!',
+				cancelButtonText: 'Cancel',
 			})
 		},
 
 		swalLoading () {
 			swal({
-				title: 'Sedang Menghapus',
-				text: 'Harap tunggu, mohon jangan tutup jendela ini.',
+				title: 'Erasing!',
+				text: 'Please wait and do not close this window.',
 				allowEscapeKey: false,
 				allowOutsideClick: false,
 				onOpen: () => {
