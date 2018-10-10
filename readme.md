@@ -31,6 +31,11 @@ Build assets
 
 ```bash
 npm run prod
+# For production build
+npm run dev
+# For development build
+npm run watch
+# For development build & watch source change
 ```
 
 Add `role` and `permission` middleware to your `app/Http/Kernel.php` file in the `$routeMiddleware` array section.
