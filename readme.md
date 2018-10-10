@@ -61,7 +61,7 @@ All vue components are in the `resources/assets/js` folder, you can add or modif
 ## Credits
 
 - [Dimas Wibowo][link-author]
-- [CoreUI][link-corui]
+- [CoreUI][link-coreui]
 - [Laravel Permission][link-laravel-permission]
 - [Laravel UUID][link-laravel-uuid]
 
