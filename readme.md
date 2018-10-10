@@ -60,7 +60,8 @@ All vue components are in the `resources/assets/js` folder, you can add or modif
 
 ## Credits
 
-- [Dimas Wibowo][link-author]
+Thank you to all this beautiful package.
+
 - [CoreUI][link-coreui]
 - [Laravel Permission][link-laravel-permission]
 - [Laravel UUID][link-laravel-uuid]
@@ -68,6 +69,8 @@ All vue components are in the `resources/assets/js` folder, you can add or modif
 ## License
 
 MIT. Please see the [license file](license.md) for more information.
+
+<a href="https://www.buymeacoffee.com/daemswibowo" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 [ico-version]: https://img.shields.io/packagist/v/daemswibowo/camvret.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/daemswibowo/camvret.svg?style=flat-square
