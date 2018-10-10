@@ -14,7 +14,7 @@
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
-										<label for="name" class="control-label">Nama <span class="text-danger">*</span></label>
+										<label for="name" class="control-label">Name <span class="text-danger">*</span></label>
 
 										<input :disabled="loadings.submit" type="text" name="name" v-model="form.name" class="form-control" :class="{'is-invalid':form.errors.name || errors.has('name')}" required v-validate>
 										<div class="invalid-feedback">
@@ -30,7 +30,7 @@
 
 									</div>
 									<div class="alert alert-info" v-if="modal.method=='put'">
-										<i class="icon-info"></i> Hanya masukkan password jika Anda ingin mengubahnya.
+										<i class="icon-info"></i> Just enter the password if you want to change it.
 									</div>
 									<div class="form-group">
 										<label for="password" class="control-label">Password</label>
@@ -40,7 +40,7 @@
 										</div>
 									</div>
 									<div class="form-group">
-										<label for="password_confirmation" class="control-label">Konfirmasi Password</label>
+										<label for="password_confirmation" class="control-label">Confirm Password</label>
 										<input :disabled="loadings.submit" type="password" name="password_confirmation" v-model="form.password_confirmation" class="form-control" :class="{'is-invalid':form.errors.password_confirmation}">
 										<div v-if="form.errors.password_confirmation" class="invalid-feedback">
 											{{ form.errors.password_confirmation[0] }}
@@ -49,7 +49,7 @@
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
-										<label for="roles" class="control-label">Peran</label>
+										<label for="roles" class="control-label">Roles</label>
 										<p v-if="loadings.roles">Loading...</p>
 										<v-select v-show="!loadings.roles" v-model="form.roles" multiple :options="roles" :disabled="loadings.roles" label="name"></v-select>
 										<div v-if="form.errors.roles" class="invalid-feedback">
@@ -57,7 +57,7 @@
 										</div>
 									</div>
 									<div class="form-group" v-if="can('Give Permissions To User')">
-										<label for="roles" class="control-label">Izin Createan</label>
+										<label for="roles" class="control-label">Additional Permissions</label>
 										<p v-if="loadings.permissions">Loading...</p>
 										<v-select v-show="!loadings.permissions" v-model="form.permissions" multiple :options="permissions" :disabled="loadings.permissions" label="name"></v-select>
 										<div v-if="form.errors.permissions" class="invalid-feedback">
@@ -106,10 +106,10 @@
 							<thead>
 								<tr>
 									<th width="1"></th>
-									<th>Nama</th>
+									<th>Name</th>
 									<th>Email</th>
-									<th>Peran</th>
-									<th v-if="can('Give Permissions To User')">Izin Createan</th>
+									<th>Roles</th>
+									<th v-if="can('Give Permissions To User')">Additional Permissions</th>
 									<th>Dibuat Pada</th>
 									<th>Aksi</th>
 								</tr>
@@ -207,7 +207,7 @@
 			this.url = this.$config.api+'management/user';
 			if (this.can('Read Users')) {
 				this.getIndex();
-				this.getPerans();
+				this.getRoless();
 				this.getIzins();
 			}
 		},
@@ -226,7 +226,7 @@
 					vm.loadings.permissions = false;
 				});
 			},
-			getPerans () {
+			getRoless () {
 				let vm = this;
 				vm.loadings.roles = true;
 				axios.get(this.$config.api+'management/role?all=true')
