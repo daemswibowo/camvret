@@ -23,6 +23,18 @@ php artisan camvret:install
 ```
 This command will publish all the important resources for you (The default file will replaced).
 
+Install node modules
+
+```bash
+npm install
+```
+
+Build assets
+
+```bash
+npm run prod
+```
+
 Add `role` and `permission` middleware to your `app/Http/Kernel.php` file in the `$routeMiddleware` array section.
 
 ``` php
@@ -33,44 +45,25 @@ protected $routeMiddleware = [
 ];
 ```
 
-## Usage
+Setup your database configuration then run `migrate` command:
 
-
-
-## Change log
-
-Please see the [changelog](changelog.md) for more information on what has changed recently.
-
-## Testing
-
-``` php
-protected $routeMiddleware = [
-        'auth' => \App\Http\Middleware\Authenticate::class,
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
-        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
-        'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
-        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
-];
+``` bash
+php artisan migrate --seed
 ```
 
-## Contributing
+And then run `php artisan serve`. And login with the default user `superadmin@foo.com` and password `secret`
 
-Please see [contributing.md](contributing.md) for details and a todolist.
+## Usage
 
-## Security
-
-If you discover any security related issues, please email daemswibowo@gmail.com instead of using the issue tracker.
+For development, you can read the full documentation <a href="https://laravel.com/docs/5.7/frontend">here</a>.
+All vue components are in the `resources/assets/js` folder, you can add or modify the file. Enjoy!
 
 ## Credits
 
 - [Dimas Wibowo][link-author]
-- [All Contributors][link-contributors]
+- [CoreUI][link-corui]
+- [Laravel Permission][link-laravel-permission]
+- [Laravel UUID][link-laravel-uuid]
 
 ## License
 
@@ -85,5 +78,7 @@ MIT. Please see the [license file](license.md) for more information.
 [link-downloads]: https://packagist.org/packages/daemswibowo/camvret
 [link-travis]: https://travis-ci.org/daemswibowo/camvret
 [link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/daemswibowo
-[link-contributors]: ../../contributors]
+[link-author]: https://daemswibowo.github.io
+[link-coreui]: https://coreui.io
+[link-laravel-permission]: https://github.com/spatie/laravel-permission
+[link-laravel-uuid]: https://github.com/webpatser/laravel-uuid
