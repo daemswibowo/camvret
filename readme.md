@@ -38,6 +38,8 @@ npm run watch
 # For development build & watch source change
 ```
 
+Read more on <a href="https://laravel.com/docs/5.5/frontend">Laravel documentation</a> about frontend development command.
+
 Add `role` and `permission` middleware to your `app/Http/Kernel.php` file in the `$routeMiddleware` array section.
 
 ``` php
@@ -58,7 +60,6 @@ And then run `php artisan serve`. And login with the default user `superadmin@fo
 
 ## Usage
 
-For development, you can read the full documentation <a href="https://laravel.com/docs/5.7/frontend">here</a>.
 All vue components are in the `resources/assets/js` folder, you can add or modify the file. Enjoy!
 
 ## Credits
